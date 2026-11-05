@@ -70,6 +70,7 @@ export default function Weaterapp() {
     <div className="app-wrap">
 
       <main>
+        <h1 className="app-title">신태현의 날씨 예보</h1>
 
         <header>
   <form
