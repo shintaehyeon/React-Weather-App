@@ -5,7 +5,8 @@ import { showDate } from '../../data'
 export default function Weaterapp() {
 
   const [posts, setPosts] = useState({})
-  const [city, setCity] = useState('iran')
+  const [inputCity, setInputCity] = useState('Pohang')
+  const [city, setCity] = useState('Pohang')
   const [error, setError] = useState(false)
 
   useEffect(() => {
@@ -15,7 +16,7 @@ export default function Weaterapp() {
 
         // گرفتن مختصات شهر
         const geo = await fetch(
-          `https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1`
+          `https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1&language=ko`
         )
 
         const geoData = await geo.json()
@@ -71,13 +72,35 @@ export default function Weaterapp() {
       <main>
 
         <header>
-          <input
-            value={city}
-            onChange={(e)=>setCity(e.target.value)}
-            type="text"
-            placeholder="Search for a city..."
-          />
-        </header>
+  <form
+    onSubmit={(e) => {
+      e.preventDefault()
+
+      const text = inputCity.trim()
+      if (!text) return
+
+      const cityNames = {
+        서울: 'Seoul',
+        포항: 'Pohang',
+        부산: 'Busan',
+        대구: 'Daegu',
+        인천: 'Incheon',
+        대전: 'Daejeon',
+        광주: 'Gwangju',
+        제주: 'Jeju',
+      }
+
+      setCity(cityNames[text] || text)
+    }}
+  >
+    <input
+      value={inputCity}
+      onChange={(e) => setInputCity(e.target.value)}
+      type="text"
+      placeholder="도시 입력 후 Enter"
+    />
+  </form>
+</header>
 
 
         {
