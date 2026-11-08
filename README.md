@@ -3,8 +3,9 @@
 작성자: 22101046 신태현
 배포 URL: https://taehyeon-weather.vercel.app/
 과제 저장소: https://github.com/2026-2-OSS/assign10-c02-22101046.git
-원본 프로젝트 출처: fshoja/React-Weather-App
+원본 출처: https://github.com/fshoja/React-Weather-App
  (MIT License)
+
 
 ### 1) 프로젝트 선택 이유
 - React와 Vite 기반의 간단한 구조로 되어 있어, React의 핵심 개념인 컴포넌트 생명주기와 React Hooks(`useState`, `useEffect`)를 분석하고 학습하기에 매우 적합하여 선택했습니다.
@@ -17,7 +18,7 @@
 3. 위치 및 날짜 포맷팅: 검색된 도시·국가 정보와 현재 날짜를 포맷팅하여 화면에 렌더링
 
 
-
+'''
 ## STEP 2. Clone & Run
 
 프로젝트 설치 및 로컬 실행 방법:
@@ -31,6 +32,7 @@ cd assign10-c02-22101046
 npm install
 # 4. 개발 서버 실행
 npm run dev
+'''
 
 ## STEP 3. Source code Exploration
 
