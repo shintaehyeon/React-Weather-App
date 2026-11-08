@@ -44,7 +44,12 @@ data.jsx: 요일, 날짜, 월, 연도를 사람이 읽기 쉬운 문자열로 �
 
 
 
-
+2) React Component 역할
+App 컴포넌트 (src/App.jsx): 애플리케이션의 최상위 루트 컨테이너 역할을 하며, 하위의 Weaterapp 컴포넌트를 화면에 마운트합니다.
+Weaterapp 컴포넌트 (src/component/Weaterapp.jsx):
+상태 관리(useState): 사용자의 입력 도시(inputCity, city), 날씨 데이터(posts), 에러 상태(error)를 총괄 관리합니다.
+비동기 통신(useEffect): 검색 도시가 변경될 때마다 Open-Meteo API를 호출하여 최신 날씨 데이터를 가져옵니다.
+조건부 렌더링: 날씨 데이터가 정상일 때는 날씨 카드를 렌더링하고, 도시를 찾지 못하면 에러 UI를 렌더링합니다.
 
 
 
