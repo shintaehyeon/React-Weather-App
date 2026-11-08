@@ -18,6 +18,35 @@
 
 
 
+## STEP 2. Clone & Run
+
+프로젝트 설치 및 로컬 실행 방법:
+
+bash
+# 1. 저장소 클론
+git clone https://github.com/2026-2-OSS/assign10-c02-22101046.git
+# 2. 의존성 패키지 설치
+npm install
+# 3. 개발 서버 실행
+npm run dev
+
+## STEP 3. Source code Exploration
+
+1) project Structure
+
+src/main.jsx: React 애플리케이션의 진입점(Entry Point)으로, HTML의 #root 엘리먼트에 최상위 <App /> 컴포넌트를 마운트합니다.
+
+src/App.jsx: 애플리케이션의 최상위 루트 컴포넌트로, 메인 날씨 화면을 렌더링하는 Weaterapp 컴포넌트를 호출합니다.
+  
+src/component/Weaterapp.jsx: 날씨 검색, API 데이터 호출, 상태 관리, 화면 렌더링을 모두 담당하는 핵심 메인 컴포넌트입니다.
+
+data.jsx: 요일, 날짜, 월, 연도를 사람이 읽기 쉬운 문자열로 포맷팅해 주는 showDate() 유틸리티 함수를 제공합니다.
+
+
+
+
+
+
 
 
 =======================================================================
@@ -28,11 +57,6 @@
 A modern and responsive weather application built with React.js and Vite.
 
 The application allows users to search for cities and view real-time weather information using the Open-Meteo API.
-
-## 🌐 Live Demo
-
-https://react-weather-app-psi-ten.vercel.app/
-
 
 ## 🚀 Features
 
