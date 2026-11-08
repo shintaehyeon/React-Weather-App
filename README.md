@@ -53,6 +53,31 @@ Weaterapp 컴포넌트 (src/component/Weaterapp.jsx):
 
 
 
+3) Code Analysis (코드 분석 및 동작 원리)
+jsx
+// src/component/Weaterapp.jsx 내 날씨 조회 비동기 로직
+const geo = await fetch(
+  `https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1&language=ko`
+);
+const geoData = await geo.json();
+if (!geoData.results) {
+  setError(true);
+  return;
+}
+const { latitude, longitude, name, country } = geoData.results[0];
+const weather = await fetch(
+  `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min&timezone=auto`
+);
+const weatherData = await weather.json();
+동작 원리 설명:
+1. 사용자가 입력한 도시 이름(city)을 가지고 Open-Meteo Geocoding API를 호출하여 해당 도시의 위도(latitude)와 경도(longitude) 좌표를 먼저 구합니다.
+2. 검색 결과가 없으면 setError(true)를 호출하여 'City not found' 에러 화면을 띄웁니다.
+3. 좌표를 정상적으로 받아오면 해당 위도·경도 값을 넘겨 Forecast API를 호출하여 현재 기온, 최저/최고 기온을 받아와 상태(posts)에 저장하고 화면을 갱신합니다.
+
+
+
+
+
 
 =======================================================================
 
