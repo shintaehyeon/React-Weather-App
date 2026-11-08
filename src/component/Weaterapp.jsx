@@ -72,36 +72,36 @@ export default function Weaterapp() {
       <main>
         <h1 className="app-title">신태현의 날씨 예보</h1>
 
-        <header>
-  <form
-    onSubmit={(e) => {
-      e.preventDefault()
+               
 
-      const text = inputCity.trim()
-      if (!text) return
-
-      const cityNames = {
-        서울: 'Seoul',
-        포항: 'Pohang',
-        부산: 'Busan',
-        대구: 'Daegu',
-        인천: 'Incheon',
-        대전: 'Daejeon',
-        광주: 'Gwangju',
-        제주: 'Jeju',
-      }
-
-      setCity(cityNames[text] || text)
-    }}
-  >
-    <input
-      value={inputCity}
-      onChange={(e) => setInputCity(e.target.value)}
-      type="text"
-      placeholder="도시 입력 후 Enter"
-    />
-  </form>
-</header>
+        {/* 여기서부터 추가: 주요 도시 빠른 선택 버튼 */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', margin: '15px 0' }}>
+          {['서울', '포항', '부산', '제주'].map((cityName) => (
+            <button
+              key={cityName}
+              type="button"
+              onClick={() => {
+                const cityMap = { 서울: 'Seoul', 포항: 'Pohang', 부산: 'Busan', 제주: 'Jeju' }
+                setCity(cityMap[cityName])
+                setInputCity(cityName)
+              }}
+              style={{
+                padding: '6px 14px',
+                borderRadius: '16px',
+                border: 'none',
+                backgroundColor: 'rgba(255, 255, 255, 0.25)',
+                color: 'white',
+                cursor: 'pointer',
+                fontWeight: 'bold',
+                fontSize: '14px',
+                transition: '0.2s'
+              }}
+            >
+              {cityName}
+            </button>
+          ))}
+        </div>
+        {/* 여기까지 추가 */}
 
 
         {
